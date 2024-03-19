@@ -2,73 +2,6 @@
 #include <string.h>
 #include <assert.h>
 
-#if 0
-#include "stream_reader.h"
-#include "callstack.h"
-#include "constant.h"
-#include "undef.h"
-
-#define SET_ENUM(truc)
-
-int main()
-{
-
-    paramType datas[4];
-    //char datas[100];
-
-#include "constant.h"
-    OPEN("./output.byte");
-    while (1)
-    {
-
-        EXECUTE_READER_(datas);
-        printf("current truc: %d", datas[0]);
-        EXECUTE_ORDER(datas);
-    }
-#include "undef.h"
-}
-#endif
-
-#if 0
-#include "operations.h"
-int main(){
-    for(long long i = 0; i < 1000000; i++){
-        for(int y = 0; y < 100; y++)
-            PUSH(STR, "Bonjour messieurs fideles. ");
-        for(int y = 0; y < 99; y++)
-            ADDv
-        //printf("%d\n", stack_ptr);
-        //assert(stack_ptr == 0);
-        stack_ptr = 0;
-    }
-    stack_ptr++;
-    DEBUG_STACK();
-}
-#endif
-
-#if 0
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-int main(){
-    for(long long i = 0; i < 1000000; i++){
-        char* i = calloc(8192, sizeof(char));
-        char* to_cat = calloc(8192, (sizeof(char)));
-        for(int y = 0; y < 99; y++){
-            strcat(to_cat, "Bonjour messieurs fideles. ");
-        }
-        strcat(i, to_cat);
-        free(i);
-        free(to_cat);
-    }
-
-}
-
-#endif
-
-#if 1
 #define STREAM_READER_H_INCLUDED
 #include "callstack.h"
 #include "constant.h"
@@ -259,5 +192,3 @@ int main()
         print_debug(datas);
     }
 }
-
-#endif
