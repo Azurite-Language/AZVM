@@ -1,12 +1,16 @@
 CC = gcc
 FLAGS = -std=c99 -Wall -Wextra -O0 -g
 SRC = ./src/*.c
-EXE = main
+EXE = ./bin/azvm
 OPTI = -O3
 
-all: main
 
-main: .PHONY
+all: main folder
+
+folder: .PHONY
+	mkdir -p ./bin
+
+main: .PHONY folder
 	$(CC) $(SRC) -o $(EXE) $(FLAGS) $(OPTI)
 
 benchmark: main

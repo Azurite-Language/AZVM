@@ -57,12 +57,12 @@ void print_debug(paramType *datas)
     }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     size_t jecpa;
     // char datas[100];
     char buffer[200];
-    OPEN("./output.byte");
+    OPEN (argv[1]);
     value e1;
     value e2;
     size_t iterator;
