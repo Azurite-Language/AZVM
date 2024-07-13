@@ -30,6 +30,7 @@ enum OPCODE
 {
 	OP_EXIT = 0,
 	OP_PUSH,
+	OP_PUSH_RELATIVE,
 	OP_POP,
 	OP_DEFUN,
 	OP_SET,
@@ -81,6 +82,7 @@ enum Operator
 char *OPCODE_NAMES[] = {
 	[OP_EXIT] = "OP_EXIT",
 	[OP_PUSH] = "OP_PUSH",
+	[OP_PUSH_RELATIVE] = "OP_PUSH_RELATIVE",
 	[OP_POP] = "OP_POP",
 	[OP_DEFUN] = "OP_DEFUN",
 	[OP_SET] = "OP_SET",

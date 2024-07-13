@@ -42,7 +42,7 @@ static FILE *reader_ = NULL;
         e1 = TOP();                    \
         POP();                         \
     }                                  \
-    printf("e1: %d e2: %d\n", e1.internal.INT, e2.internal.INT);
+    // printf("e1: %d e2: %d\n", e1.internal.INT, e2.internal.INT);
 
 void print_debug(paramType *datas)
 {
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     size_t offset = 0;
     while (1)
     {
-        fgetc(stdin);
+        // fgetc(stdin);
         paramType datas[4] = {0};
         EXECUTE_READER_(datas);
         switch (datas[0])
@@ -81,7 +81,9 @@ int main(int argc, char *argv[])
             break;
         case OP_PUSH:
             PUSH(INT, datas[1]);
-            // printf("push value: %d\n", datas[1]);
+            break;
+        case OP_PUSH_RELATIVE:
+            PUSH(INT, TOP_RELATIVE(datas[1]).internal.INT);
             break;
         case OP_IF:
             if (!(TOP().internal.INT))
@@ -146,10 +148,10 @@ int main(int argc, char *argv[])
             PUSH_CALLSTACK_ADDR((ftell(reader_) / (4 * sizeof(paramType))) - 1);
             callstack_ptr++;
             GOTO_(datas[1] - 1 + offset);
-            printf("return addr is: %d\n", CALL_STACK_PTR_LINE + 1);
+            // printf("return addr is: %d\n", CALL_STACK_PTR_LINE + 1);
             break;
         case OP_POP_CALLSTACK:
-            printf("Returning to: %d\n", CALL_STACK_PTR_LINE + 1);
+            // printf("Returning to: %d\n", CALL_STACK_PTR_LINE + 1);
             POP_CALLSTACK(datas[1]);
             break;
         case OP_INPUT:
@@ -189,6 +191,6 @@ int main(int argc, char *argv[])
             exit(1);
             break;
         }
-        print_debug(datas);
+        // print_debug(datas);
     }
 }
